@@ -1,25 +1,36 @@
-<h2> All Flats </h2>
-
-<% @flats.each do |flat| %>
-  <div class="flexbox">
-    <div>
-      <%= flat.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2> All Flats (<%= @flats.length %>) </h2>
     </div>
-    <div>
-      <%= flat.address %>
-    </div>
-    <div>
-      <%= flat.description %>
-    </div>
-    <div>
-      <%= flat.price_per_night %>
-    </div>
-    <div>
-      <%= flat.number_of_guests %>
-    </div>
-    <%= link_to "More info", flat_path(flat) %>
-    <%= link_to "Edit", edit_flat_path(flat) %>
-    <%= link_to "Delete", flat_path(flat), method: :delete, data: { confirm: "Are u sure?"} %>
   </div>
-<% end %>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="flex-card">
+          <div class ="flat-card-name">
+            <%= flat.name %>
+          </div>
+          <div class ="flat-card-address">
+            <%= flat.address %>
+          </div>
+          <div class = "flat-card-desc">
+            <p><%= flat.description %></p>
+          </div>
+          <div class= "flat-card-price">
+            <%= flat.price_per_night %>
+          </div>
+          <div class ="flat-card-guest">
+            <%= flat.number_of_guests %>
+          </div>
+            <%= link_to "More info", flat_path(flat) %>
+            <%= link_to "Edit", edit_flat_path(flat) %>
+            <%= link_to "Delete", flat_path(flat), method: :delete, data: { confirm: "Are u sure?"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 
