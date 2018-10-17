@@ -1,0 +1,25 @@
+<h2> All Flats </h2>
+
+<% @flats.each do |flat| %>
+  <div class="flexbox">
+    <div>
+      <%= flat.name %>
+    </div>
+    <div>
+      <%= flat.address %>
+    </div>
+    <div>
+      <%= flat.description %>
+    </div>
+    <div>
+      <%= flat.price_per_night %>
+    </div>
+    <div>
+      <%= flat.number_of_guests %>
+    </div>
+    <%= link_to "More info", flat_path(flat) %>
+    <%= link_to "Edit", edit_flat_path(flat) %>
+    <%= link_to "Delete", flat_path(flat), method: :delete, data: { confirm: "Are u sure?"} %>
+  </div>
+<% end %>
+
